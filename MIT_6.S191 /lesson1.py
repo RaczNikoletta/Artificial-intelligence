@@ -32,6 +32,25 @@ class MyDenseLayer(nn.Module):
       output = torch.sigmoid(z)
       return output
 
+#Multi output perceptron
+
+#tensorflow
+import tensorflow as tf
+
+model = tf.keras.Sequential ([
+  tf.keras.layers.Dense(n),
+  tf.keras.layers.Dense(2)
+])
+
+#pytorch
+from torch import nn
+
+model = nn.Sequential (
+  nn.Linear(m, n),
+  nn.ReLU(),
+  nn.Linear(n, 2)
+)
+
 
 
 
