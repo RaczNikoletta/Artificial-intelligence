@@ -13,3 +13,10 @@ def matmul(a,b):
 
 m1 = torch.randn(5,28*28)
 m2 = torch.randn(784,10)
+
+
+a = tensor([10.,6,-4])
+b = tensor([2.,8,7])
+a + b # tensor([12., 14.,  3.])
+
+a < b # tensor([False,  True,  True])
