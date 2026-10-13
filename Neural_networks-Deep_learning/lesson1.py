@@ -6,6 +6,14 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 
+from tensorflow.keras.callbacks import EarlyStopping
+
+early_stop = EarlyStopping(
+    monitor='val_loss',
+    patience=3,
+    restore_best_weights=True
+)
+
 # Reprodukálhatóság biztosítása (random seed rögzítése)
 tf.random.set_seed(42)
 
@@ -92,7 +100,8 @@ history = model_tf.fit(
     x_train, y_train,
     epochs=10,  # KÍSÉRLETEZÉSI PONT: Hány epoch-ig tanítsunk? Nézzétek meg, mikor lép fel túltanulás (overfitting)!
     batch_size=32, # Batch méret: Hány mintánként frissítse a súlyokat az optimáló.
-    validation_data=(x_valid, y_valid)
+    validation_data=(x_valid, y_valid),
+    callbacks=[early_stop]
 )
 # Keras history kirajzolása
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
