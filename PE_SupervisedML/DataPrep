@@ -1,0 +1,39 @@
+import numpy as np
+import pandas as pd
+import plotly.express as px
+
+from sklearn.preprocessing import (
+    LabelEncoder,
+    OneHotEncoder,
+    OrdinalEncoder,
+    MinMaxScaler,
+    StandardScaler,
+    Binarizer,
+    normalize,
+)
+from sklearn.impute import SimpleImputer
+from sklearn.impute import KNNImputer
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.model_selection import train_test_split
+
+RANDOM_STATE = 42
+
+from google.colab import drive
+drive.mount("/content/drive")
+
+from pathlib import Path
+
+DATA_DIR = Path("/content/drive/MyDrive/Colab Notebooks/1_KorszDM_I/1_DSalapok")
+
+person1 = pd.read_csv(
+    DATA_DIR / "szemely1_v2.csv",
+    sep=";",
+    encoding="ISO-8859-2",
+)
+
+person2 = pd.read_csv(
+    DATA_DIR / "szemely2_v2.csv",
+    sep=";",
+    encoding="ISO-8859-2",
+)
