@@ -37,3 +37,15 @@ person2 = pd.read_csv(
     sep=";",
     encoding="ISO-8859-2",
 )
+
+szem = pd.concat([szem1, szem2], ignore_index=True)
+
+print("Az egyesített adathalmaz első 20 sora:")
+szem.head(20)
+
+print("Az első állomány mérete:", szem1.shape)
+print("A második állomány mérete:", szem2.shape)
+print("Az egyesített állomány mérete:", person.shape)
+
+print("\nAdathalmaz információk:")
+szem.info()
